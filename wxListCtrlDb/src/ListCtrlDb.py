@@ -19,13 +19,7 @@ def InitListCtrl( Cursor, ListCtrl ):
         print "Adding column %s"%col_name
         ListCtrl.InsertColumn(colcount, col_name)
         colcount += 1
-        
-#    # adding rows
-#    for row in Cursor:
-#        print "row[0]: %s"%row[0]
-#        index = ListCtrl.InsertStringItem(sys.maxint, row[0])
-#        for i in range(1, ListCtrl.GetColumnCount()-1):
-#            ListCtrl.SetStringItem( index, i, str( row[i] ) )
+
     
 def ListCtrlInsert( Cursor, ListCtrl ):
     print "inserting %d new entries"%Cursor.rowcount
