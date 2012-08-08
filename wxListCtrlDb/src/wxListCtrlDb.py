@@ -30,8 +30,8 @@ class ListCtrlDb(ListCtrl):
         
         # set header stuff
         col_name_list = [desc[0] for desc in Cursor.description]
-        
         wx.CallAfter(self._DeferredInit, col_name_list)
+    
     
     def _DeferredInit(self, col_name_list ):
         ''' Does the actual init of the listctrl. Called from the GUI thread
@@ -46,6 +46,7 @@ class ListCtrlDb(ListCtrl):
         for col_name in col_name_list:
             self.InsertColumn(colcount, col_name)
             colcount += 1
+    
     
     def InsertFromDb( self, Cursor ):
         ''' Inserts data from the cursor as rows int the listctrl
@@ -72,7 +73,7 @@ class ListCtrlDb(ListCtrl):
         '''
         for strrow in Rows:
             index = self.InsertStringItem(sys.maxint, strrow[0] )
-            for i in range(1, len(strrow)-1):
+            for i in range(1, len(strrow)):
                 self.SetStringItem( index, i, strrow[i] )
         
     
@@ -84,8 +85,7 @@ class ListCtrlDb(ListCtrl):
         Rows = []
         # adding rows
         for row in Cursor:
-            print "row[0]: %s"%row[0]
-    
+   
             #converting all entries to string
             strrow = []
             for i in range(0, self.GetColumnCount()):
