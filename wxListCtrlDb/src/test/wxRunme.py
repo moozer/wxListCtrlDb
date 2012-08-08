@@ -45,9 +45,9 @@ class wxListCtrlTestFrame(MyFrame):
     def _AutoUpdate(self):
         ## --------
         # this breaks because sqlite only will work in the same thread that created it
-        #EntryId = 5
-        #self._sql.UpdateData( EntryId )
-        #self.list_ctrl_1.UpdateFromDb(self._sql.GetData( EntryId ))
+        # EntryId = 5
+        # self._sql.UpdateData( EntryId )
+        # self.list_ctrl_1.UpdateFromDb(self._sql.GetData( EntryId ))
         ## --------
 
         # this would break if ListCtrlDb were not thread safe.
